@@ -25,18 +25,22 @@ h1 {
 
 h2{
     font-weight: bold;
-    text-align: center;
     text-transform: uppercase;
     color: rgb(163, 80, 241);
     background:  hsl(180, 50%, 80%);
 }
 
+label{
+    
+}
 .SMinutos{
     border: 3px solid  hsl(180, 50%, 80%);
     padding: 5px;
     margin: 15px;
     background-color: white;
     display: table-cell;
+    display: flex;
+    flex-direction: column;
 }
 
 .TypePlan{
@@ -92,4 +96,5 @@ input[type="radio"], .other-services input[type="checkbox"] {
         order: -1;
         padding: 5px;
         border-radius: 5px;
+       
     }
