@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo telefonico </title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        
+        <form action="" class="CalculoMinutos">
+            <h1> Recibo telefonico</h1>
+            <div class="SMinutos">
+                <label for="minutos">Minutos de Celular (1.00 c/u)</label>
+                <input type="number" id="minutos" name="minutos" value="1">
+            </div>
+
+            <div class="TypePlan">
+                <h2>Tipo de plan </h1>
+                <label for="tel"> <input type="radio" value="tel" name="plan" id="tel"> Solo Teléfono(100MXN)</label>
+                <label for="internet"> <input type="radio" value="internet" name="plan" id="internet"> Teléfono + Internet(200MXN)</label>
+                <label for="tv"> <input type="radio" value="tv" name="plan" id="tv"> Teléfono + Internet + TV (300MXN) </label>
+            </div>
+
+            <div class="other-services">
+                    <h2> Servicios adicionales</h2>
+                    <label for="antivirus"> <input type="checkbox" name="antivirus" id="antivirus"> Antivirus (50 mxn)</label>
+                    <label for="nube"> <input type="checkbox" name="nube" id="nube"> Serivicios en la nube (150 mxn)</label>
+                    <label for="ws"> <input type="checkbox" name="ws" id="ws"> Web services (250 mxn)</label>
+            </div>
+
+            <div class="paquetes">
+                <h2>Paquetes</h2>
+                <select name="Paquetes" id="paquetes">
+                    <option value="residencial">Residencial</option>
+                    <option value="pymes">PYMES</option>
+                    <option value="empresas">Empresas</option>
+                </select>
+            </div>
+
+            <div class="TotalPagar">
+                <h2>Total a pagar</h2>
+                <input type="text" id="totalPagar" readonly>
+                <br>
+                <input type="button" value="calcular" onclick="alert('Gracias por su compra')" ondblclick="calcular()"> 
+            </div>
+        </form>
+    </div>
+</body>
+</html>
