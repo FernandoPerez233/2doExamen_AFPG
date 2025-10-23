@@ -47,5 +47,42 @@
             </div>
         </form>
     </div>
+
 </body>
+<script>
+    
+    var formulario;
+     formulario = document.getElementById("CalculoMinutos");
+        function calcular(){
+            var minutos = parseInt(formulario.minutos.value);
+            var planSeleccionado = formulario.plan.value;
+            var total = 0;
+    
+            // Costo por minutos
+            total += minutos * 1;
+    
+            // Costo por plan
+            if(planSeleccionado === "tel"){
+                total += 100;
+            } else if(planSeleccionado === "internet"){
+                total += 200;
+            } else if(planSeleccionado === "tv"){
+                total += 300;
+            }
+    
+            // Servicios adicionales
+            if(formulario.antivirus.checked){
+                total += 50;
+            }
+            if(formulario.nube.checked){
+                total += 150;
+            }
+            if(formulario.ws.checked){
+                total += 250;
+            }
+    
+            // Mostrar el total a pagar
+            formulario.totalPagar.value = total + " MXN";
+        }
+</script>
 </html>
