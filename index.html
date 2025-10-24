@@ -12,7 +12,7 @@
         <form action="" class="CalculoMinutos">
             <h1> Recibo telefonico</h1>
             <div class="SMinutos">
-                <label for="minutos">Minutos de Celular (1.00 c/u)</label>
+                <label for="minutos" id="minCel">Minutos de Celular (1.00 c/u)</label>
                 <input type="number" id="minutos" name="minutos" value="1">
             </div>
 
@@ -43,7 +43,8 @@
                 <h2>Total a pagar</h2>
                 <input type="text" id="totalPagar" readonly>
                 <br>
-                <input type="button" value="calcular" onclick="alert('Gracias por su compra')" ondblclick="calcular()"> 
+                <input type="button" value="calcular" ondblclick="calcular()" onclick=""> 
+                <!-- onclick="alert('Gracias por su compra')"  -->
             </div>
         </form>
     </div>
@@ -54,35 +55,10 @@
     var formulario;
      formulario = document.getElementById("CalculoMinutos");
         function calcular(){
-            var minutos = parseInt(formulario.minutos.value);
-            var planSeleccionado = formulario.plan.value;
-            var total = 0;
-    
-            // Costo por minutos
-            total += minutos * 1;
-    
-            // Costo por plan
-            if(planSeleccionado === "tel"){
-                total += 100;
-            } else if(planSeleccionado === "internet"){
-                total += 200;
-            } else if(planSeleccionado === "tv"){
-                total += 300;
-            }
-    
-            // Servicios adicionales
-            if(formulario.antivirus.checked){
-                total += 50;
-            }
-            if(formulario.nube.checked){
-                total += 150;
-            }
-            if(formulario.ws.checked){
-                total += 250;
-            }
-    
-            // Mostrar el total a pagar
-            formulario.totalPagar.value = total + " MXN";
+           var total= 0;
+           total = formulario.minCel.value * 10;
+
+            alert(total);
         }
 </script>
 </html>
