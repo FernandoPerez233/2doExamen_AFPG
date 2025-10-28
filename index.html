@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recibo telefonico </title>
+    <title>Recibo telefónico</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <div class="container">
         
-        <form action="" class="CalculoMinutos">
-            <h1> Recibo telefonico</h1>
+        <form id="CalculoMinutos" class="CalculoMinutos">
+            <h1>Recibo telefónico</h1>
+            
             <div class="SMinutos">
-                <label for="minutos" id="minCel">Minutos de Celular (1.00 c/u)</label>
-                <input type="number" id="minutos" name="minutos" value="1">
+                <label for="cliente">Nombre del cliente:</label>
+                <input type="text" id="cliente" name="cliente" value="">
+                <label for="minutos">Minutos de Celular ($1.00 c/u)</label>
+                <input type="number" id="minutos" name="minutos" value="10" min="10">
             </div>
 
             <div class="TypePlan">
-                <h2>Tipo de plan </h1>
-                <label for="tel"> <input type="radio" value="tel" name="plan" id="tel"> Solo Teléfono(100MXN)</label>
-                <label for="internet"> <input type="radio" value="internet" name="plan" id="internet"> Teléfono + Internet(200MXN)</label>
-                <label for="tv"> <input type="radio" value="tv" name="plan" id="tv"> Teléfono + Internet + TV (300MXN) </label>
+                <h2>Tipo de plan</h2>
+                <label><input type="radio" value="tel" name="plan" id="tel"> Solo Teléfono (100 MXN)</label>
+                <label><input type="radio" value="internet" name="plan" id="internet"> Teléfono + Internet (200 MXN)</label>
+                <label><input type="radio" value="tv" name="plan" id="tv"> Teléfono + Internet + TV (300 MXN)</label>
             </div>
 
             <div class="other-services">
-                    <h2> Servicios adicionales</h2>
-                    <label for="antivirus"> <input type="checkbox" name="antivirus" id="antivirus"> Antivirus (50 mxn)</label>
-                    <label for="nube"> <input type="checkbox" name="nube" id="nube"> Serivicios en la nube (150 mxn)</label>
-                    <label for="ws"> <input type="checkbox" name="ws" id="ws"> Web services (250 mxn)</label>
+                <h2>Servicios adicionales</h2>
+                <label><input type="checkbox" name="antivirus" id="antivirus" value="50"> Antivirus (50 MXN)</label>
+                <label><input type="checkbox" name="nube" id="nube" value="150"> Servicios en la nube (150 MXN)</label>
+                <label><input type="checkbox" name="ws" id="ws" value="250"> Web services (250 MXN)</label>
             </div>
 
             <div class="paquetes">
                 <h2>Paquetes</h2>
-                <select name="Paquetes" id="paquetes">
-                    <option value="residencial">Residencial</option>
-                    <option value="pymes">PYMES</option>
-                    <option value="empresas">Empresas</option>
+                <select name="paquetes" id="paquetes">
+                    <option value="residencial">Residencial (Sin costo adicional)</option>
+                    <option value="pymes">PYMES (+100 MXN)</option>
+                    <option value="empresas">Empresas (+200 MXN)</option>
                 </select>
             </div>
 
@@ -43,22 +46,36 @@
                 <h2>Total a pagar</h2>
                 <input type="text" id="totalPagar" readonly>
                 <br>
-                <input type="button" value="calcular" ondblclick="calcular()" onclick=""> 
-                <!-- onclick="alert('Gracias por su compra')"  -->
+                <button type="button" onclick="calcular()">Calcular</button>
             </div>
         </form>
     </div>
 
-</body>
 <script>
-    
-    var formulario;
-     formulario = document.getElementById("CalculoMinutos");
-        function calcular(){
-           var total= 0;
-           total = formulario.minCel.value * 10;
+    function calcular() {
+        var formulario = document.getElementById("CalculoMinutos");
+        var total = 0;
+        var minutos = formulario.minutos.value;
+        total =  minutos * 10;
 
-            alert(total);
+        var cliente = formulario.cliente.value;
+
+        if(formulario.plan.value == "tel"){
+            //condicion verdadera//
+            total = total + 100;
         }
+           if(formulario.plan.value == "internet") 
+           {
+            total = total + 200;
+           }
+
+           if(formulario.plan.value == "tv") 
+           {
+            total = total + 300;
+           }
+        
+        alert(total);
+}
 </script>
+</body>
 </html>

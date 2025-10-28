@@ -75,7 +75,7 @@ label{
     display: table-cell;
 }
 
-input[type="button"]{
+button{
     background-color: RGB (rgb(148, 217, 251));
     color: blueviolet;
     padding: 12px 25px;
@@ -88,7 +88,7 @@ input[type="button"]{
     align-items: center;
 }
 
-input[type="button"]:hover{
+button:hover{
     background-color: #0fa2f7e1;
 }
 
