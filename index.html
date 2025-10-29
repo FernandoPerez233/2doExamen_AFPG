@@ -28,9 +28,9 @@
 
             <div class="other-services">
                 <h2>Servicios adicionales</h2>
-                <label><input type="checkbox" name="antivirus" id="antivirus" value="50"> Antivirus (50 MXN)</label>
-                <label><input type="checkbox" name="nube" id="nube" value="150"> Servicios en la nube (150 MXN)</label>
-                <label><input type="checkbox" name="ws" id="ws" value="250"> Web services (250 MXN)</label>
+                <label><input type="checkbox" name="antivirus" id="antivirus" value="antivirus"> Antivirus (50 MXN)</label>
+                <label><input type="checkbox" name="nube" id="nube" value="nube"> Servicios en la nube (150 MXN)</label>
+                <label><input type="checkbox" name="ws" id="ws" value="ws"> Web services (250 MXN)</label>
             </div>
 
             <div class="paquetes">
@@ -73,6 +73,29 @@
            {
             total = total + 300;
            }
+        if(formulario.antivirus.checked){
+            total = total + 50;
+        }
+        if(formulario.nube.checked){
+            total = total + 150;
+        }
+        if(formulario.ws.checked == true){
+            total = total + 250;
+        }
+
+        if(formulario.paquetes.value == "residencial")
+        {
+            total = total + 321;
+        }  else if(formulario.paquetes.value == "pymes")
+        {
+            total = total + 654;
+        } else if(formulario.paquetes.value == "empresas")
+        {
+            total = total + 987;
+
+        }
+
+        formulario.resultado.value = total;
         
         alert(total);
 }
